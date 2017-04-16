@@ -2,34 +2,52 @@
 
 {% block body %}
 
-<div id="nav"></div>
-<div id='header'></div>
+<div id='container'></div>
 
-
+<!-- <div id="nav"></div>
+<div id='header'></div> -->
 
 <script type="text/babel">
 
-    var nav = document.querySelector('#nav')
-    var headportion = document.querySelector('#header')
+    // var nav = document.querySelector('#nav')
+    // var headportion = document.querySelector('#header')
+
+    var Navbar = React.createClass({
+        render: function(){
+            return (
+                <h1>Hello World</h1>,
+                <p>Hello World</p>
+                // <nav>
+                //     <ul>
+                //         <li><a href="/">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                //         <li><a href="/war_data">War Data</a></li>
+                //     </ul>
+            )
+        }
+    });
+
+    // <nav>
+    //     <ul>
+    //         <li><a href="/">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+    //         <li><a href="/war_data">War Data</a></li>
+    //     </ul>
+    // </nav>,
 
     ReactDOM.render (
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-                <li><a href="/war_data">War Data</a></li>
-            </ul>
-        </nav>,
-        nav
+        <div>
+            <Navbar/>
+        </div>,
+        document.querySelector("#container")
     );
 
-    ReactDOM.render (
-        <header>
-            <div>
-                <h1>U.S. War Deaths</h1>
-            </div>
-        </header>,
-        headportion
-    );
+    // ReactDOM.render (
+    //     <header>
+    //         <div>
+    //             <h1>U.S. War Deaths</h1>
+    //         </div>
+    //     </header>,
+    //     headportion
+    // );
 
 
 </script>
