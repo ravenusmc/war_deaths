@@ -1,3 +1,16 @@
-body {
-    background-color: white;
+/* CSS for Nav Bar */
+nav {
+    background-color: blue;
+    border-radius: 3px;
+    padding: 20px 20px;
+}
+
+nav ul {
+    text-align: center;
+    text-decoration: none;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline;
 }
