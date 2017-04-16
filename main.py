@@ -10,6 +10,11 @@ import bcrypt
 #Setting up flask
 app = Flask(__name__)
 
+#This function will be the login page for the app
+@app.route('/', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html', title='Login Page')
+
 
 #This line will actually run the app.
 app.run(debug=True)
