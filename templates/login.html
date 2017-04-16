@@ -2,53 +2,43 @@
 
 {% block body %}
 
-<div id='container'></div>
+<div id='container'>
+</div>
 
-<!-- <div id="nav"></div>
-<div id='header'></div> -->
 
 <script type="text/babel">
+    var { Router,
+        Route,
+        IndexRoute,
+        IndexLink,
+        hashHistory,
+        Link } = ReactRouter;
 
-    // var nav = document.querySelector('#nav')
-    // var headportion = document.querySelector('#header')
+    var destination = document.querySelector("#container");
 
     var Navbar = React.createClass({
         render: function(){
             return (
-                <h1>Hello World</h1>,
-                <p>Hello World</p>
-                // <nav>
-                //     <ul>
-                //         <li><a href="/">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-                //         <li><a href="/war_data">War Data</a></li>
-                //     </ul>
+                <div>
+                    <nav>
+                        <ul>
+                            <li><Link to="/">Home</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><Link to="/war_data">War data</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><Link to="/war_graph">War graph</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </ul>
+                    </nav>
+                </div>
             )
         }
     });
 
-    // <nav>
-    //     <ul>
-    //         <li><a href="/">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-    //         <li><a href="/war_data">War Data</a></li>
-    //     </ul>
-    // </nav>,
-
-    ReactDOM.render (
-        <div>
-            <Navbar/>
-        </div>,
-        document.querySelector("#container")
+    ReactDOM.render(
+      <Router history={ReactRouter.hashHistory}>
+        <Route path="/" component={Navbar}>
+        </Route>
+      </Router>,
+      destination
     );
-
-    // ReactDOM.render (
-    //     <header>
-    //         <div>
-    //             <h1>U.S. War Deaths</h1>
-    //         </div>
-    //     </header>,
-    //     headportion
-    // );
-
 
 </script>
 
