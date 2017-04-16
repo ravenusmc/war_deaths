@@ -2,11 +2,15 @@
 
 {% block body %}
 
-<div id="container"></div>
+<div id="nav"></div>
+<div id='header'></div>
+
+
 
 <script type="text/babel">
 
-    var destination = document.querySelector('#container')
+    var nav = document.querySelector('#nav')
+    var headportion = document.querySelector('#header')
 
     ReactDOM.render (
         <nav>
@@ -15,8 +19,18 @@
                 <li><a href="/war_data">War Data</a></li>
             </ul>
         </nav>,
-        destination
+        nav
     );
+
+    ReactDOM.render (
+        <header>
+            <div>
+                <h1>U.S. War Deaths</h1>
+            </div>
+        </header>,
+        headportion
+    );
+
 
 </script>
 
