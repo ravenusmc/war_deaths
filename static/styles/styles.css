@@ -18,6 +18,11 @@ html {
   background-repeat: no-repeat;
 }
 
+.login_main {
+    border: 3px solid black;
+    text-align: center;
+}
+
 /* CSS for Nav Bar */
 nav {
     background-color: lightblue;

@@ -3,13 +3,13 @@
 {% block body %}
 
 <div id='image'>
-    <main>
+    <main class='login_main'>
         <h1>Login Page</h1>
         <form onsubmit='return validateForm();' method="post">
             <p>Username:<input type=text name=username>
             <p>password: <input type=text name=password /></p>
-            <p><input type=submit value=Login></p>
-            <button><a href='/sign_up'>Sign Up</a></button>
+            <p><input type=submit value=Login>
+            <button><a href='/sign_up'>Sign Up</a></button></p>
         </form>
     </main>
 
