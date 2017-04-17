@@ -13,16 +13,20 @@ app = Flask(__name__)
 #This function will be the login page for the app
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    name = 'Mike'
-    name_two = "Abby"
-    return render_template('login.html', title='Login Page', name = name, name2 = name_two)
+    return render_template('login.html', title='Login Page')
+
+#This function will bring the user to the index page.
+@app.route('/index')
+def index():
+    return render_template('index.html', title='Login Page')
+
 
 #This function will allow the user to select what type of war data they want to
 #look at.
 @app.route('/data')
 def war_data():
     name = "Mike"
-    return render_template('war_data.html', title='War Data Page', name = name)
+    return render_template('war_data.html', title='War Data Page')
 
 
 #This line will actually run the app.

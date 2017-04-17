@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div id='container'>
+</div>
+
+
+<script type="text/babel">
+
+    var { Router,
+        Route,
+        IndexRoute,
+        IndexLink,
+        hashHistory,
+        Link } = ReactRouter;
+
+    var destination = document.querySelector("#container");
+
+    var Navbar = React.createClass({
+        render: function(){
+            return (
+                <div>
+                    <nav>
+                        <ul>
+                            <li><Link to="/">Home</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><Link to="/Data">Data</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><Link to="/Graph">Graph</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </ul>
+                    </nav>
+                    <div className="content">
+                        {this.props.children}
+                    </div>
+                </div>
+            )
+        }
+    });
+
+    var Home = React.createClass({
+      render: function() {
+        return (
+          <div>
+            <h2>Hello</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper consectetur tellus ut interdum. Aenean luctus nisl eu velit dapibus, auctor accumsan leo ornare. Nam libero dolor, tincidunt sed semper vel, pulvinar nec eros. Integer porttitor mi quis ex gravida dignissim. Donec sem enim, tincidunt ut ipsum sit amet, lacinia sollicitudin elit. Aliquam ut eros ex. Curabitur ut facilisis augue, id consequat turpis. Proin vel erat magna. Phasellus fringilla sodales neque a suscipit. Vestibulum in venenatis tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus scelerisque, nisl eu bibendum euismod, neque nibh aliquet nibh, in malesuada nulla erat gravida velit. Nullam molestie felis condimentum, tempus lorem non, consectetur ex.
+            </p>
+            <p>Morbi augue metus, lacinia quis turpis ut, volutpat fringilla nulla. Phasellus mattis ac augue congue tempor.</p>
+          </div>
+          )
+      }
+    })
+
+    var Data = React.createClass({
+    render: function() {
+        return (
+          <div>
+            <h2>Data</h2>
+            <p>Mauris sem velit, vehicula eget sodales vitae,
+            rhoncus eget sapien:</p>
+            <ol>
+              <li>Nulla pulvinar diam</li>
+              <li>Facilisis bibendum</li>
+              <li>Vestibulum vulputate</li>
+              <li>{{ name }}</li>
+              <li>{{ name2 }}</li>
+            </ol>
+          </div>
+        );
+      }
+  });
+
+  var Graph = React.createClass({
+  render: function() {
+      return (
+        <div>
+          <h2>Graph</h2>
+          <p>Mauris sem velit, vehicula eget sodales vitae,
+          rhoncus eget sapien:</p>
+          <ol>
+            <li>Nulla pulvinar diam</li>
+            <li>Facilisis bibendum</li>
+            <li>Vestibulum vulputate</li>
+            <li>{{ name2 }}</li>
+            <li>{{ name }}</li>
+          </ol>
+        </div>
+      );
+    }
+});
+
+
+    ReactDOM.render(
+      <Router history={ReactRouter.hashHistory}>
+        <Route path="/" component={Navbar}>
+        <IndexRoute component={Home}/>
+        <Route path="data" component={Data} />
+        <Route path="graph" component={Graph} />
+        </Route>
+      </Router>,
+      destination
+    );
+
+</script>
+
+
+{% endblock %}
