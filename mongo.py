@@ -8,9 +8,9 @@ from pymongo import MongoClient
 class User_Database():
 
     def __init__(self):
-    self.client = MongoClient() #Setting up the connection to mongo DB
-    self.db = self.client.member #Creating the member DB
-    self.db.members = self.db.members #Creating a members collection within the titanic DB
+        self.client = MongoClient() #Setting up the connection to mongo DB
+        self.db = self.client.member #Creating the member DB
+        self.db.members = self.db.members #Creating a members collection within the titanic DB
 
     #This method will add a new member to the database.
     def add(self, username, password):
