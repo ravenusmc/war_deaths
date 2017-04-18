@@ -28,7 +28,7 @@
                             <li><Link to="/Graph">Graph</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
                         </ul>
                     </nav>
-                    <div className="content">
+                    <div>
                         {this.props.children}
                     </div>
                 </div>
@@ -49,6 +49,8 @@
       }
     })
 
+    //Using the form in this component like this-I am not even sure if this is right.
+    ///However, for the purposes of this project, it works.
     var Data = React.createClass({
     render: function() {
         return (
@@ -56,13 +58,13 @@
             <h2>Data</h2>
             <p>Mauris sem velit, vehicula eget sodales vitae,
             rhoncus eget sapien:</p>
-            <ol>
-              <li>Nulla pulvinar diam</li>
-              <li>Facilisis bibendum</li>
-              <li>Vestibulum vulputate</li>
-              <li>{{ name }}</li>
-              <li>{{ name2 }}</li>
-            </ol>
+            <form  method='POST' action='/sex_results'>
+                <p>Please select only one choice:
+                <input type='radio' name='sex' value='male'/>Male
+                <input type='radio' name='sex' value='female'/>Female
+                <input type='submit'/>
+                </p>
+            </form>
           </div>
         );
       }
@@ -88,16 +90,16 @@
 });
 
 
-    ReactDOM.render(
-      <Router history={ReactRouter.hashHistory}>
-        <Route path="/" component={Navbar}>
-        <IndexRoute component={Home}/>
-        <Route path="data" component={Data} />
-        <Route path="graph" component={Graph} />
-        </Route>
-      </Router>,
-      destination
-    );
+ReactDOM.render(
+  <Router history={ReactRouter.hashHistory}>
+    <Route path="/" component={Navbar}>
+    <IndexRoute component={Home}/>
+    <Route path="data" component={Data} />
+    <Route path="graph" component={Graph} />
+    </Route>
+  </Router>,
+  destination
+);
 
 </script>
 

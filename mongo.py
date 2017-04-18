@@ -21,7 +21,7 @@ class User_Database():
 
     #This method will see if the user is actual member of the site.
     def check(self, username, password):
-        user_real = self.db.passengers.find_one({
+        user_real = self.db.members.find_one({
             "username": username,
             "password": password
         });

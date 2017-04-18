@@ -24,6 +24,7 @@ def login():
         password = request.form['password']
         #Now checking to see if the user is in the database.
         flag = member.check(username, password)
+        print(flag)
         if flag == True:
             #If the user is in the database, the user gets sent to the index page.
             return redirect(url_for('index'))
@@ -54,13 +55,17 @@ def sign_up():
 def index():
     return render_template('index.html', title='Login Page')
 
-
 #This function will allow the user to select what type of war data they want to
 #look at.
 @app.route('/data')
 def war_data():
     name = "Mike"
     return render_template('war_data.html', title='War Data Page')
+
+@app.route('/sex_results', methods=['POST'])
+def sex_results():
+    sex = str(request.form['sex'])
+    return render_template('sex_results.html', title="sex_results",  sex = sex)
 
 
 #This line will actually run the app.
