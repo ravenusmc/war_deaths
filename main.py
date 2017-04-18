@@ -7,12 +7,16 @@ from flask import Flask, session, redirect, url_for, escape, render_template, re
 from pymongo import MongoClient
 import bcrypt
 
+#importing files that I made for this project
+from mongo import *
+
 #Setting up flask
 app = Flask(__name__)
 
 #This function will be the login page for the app
 @app.route('/', methods=['GET', 'POST'])
 def login():
+    member = User_Database()
     return render_template('login.html', title='Login Page')
 
 #This function will bring the user to the index page.
