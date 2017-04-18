@@ -1,10 +1,18 @@
-<main>
-    <div>
-        <h1>Sign Up Page</h1>
-        <form onsubmit='return validateForm();' method="post">
-            <p>Username:<input type=text name=username>
-            <p>password: <input type=text name=password /></p>
-            <p><input type=submit value=sign_up>
-        </form>
-    </div>
-</main>
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div id='image_sign_up'>
+    <main class='login_main'>
+        <div>
+            <h1>Sign Up Page</h1>
+            <form onsubmit='return validateForm();' method="post">
+                <p>Username:<input type=text name=username>
+                <p>password: <input type=text name=password /></p>
+                <p><input type=submit value=sign_up>
+            </form>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

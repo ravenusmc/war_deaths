@@ -30,6 +30,16 @@ html {
     text-align: center;
 }
 
+/* CSS For Sign Up Page */
+
+#image_sign_up {
+  background: url(https://static.pexels.com/photos/27665/pexels-photo-27665.jpg);
+  background-position: center;
+  height: 700px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 /* CSS for Nav Bar */
 nav {
     background-color: lightblue;
