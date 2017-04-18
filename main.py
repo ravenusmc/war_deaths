@@ -38,9 +38,9 @@ def login():
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
     #This is the object that will deal with Mongo DB.
-    member = Database()
+    member = User_Database()
     if request.method == 'POST':
-        #Getting the correct data from the form that was submitted. 
+        #Getting the correct data from the form that was submitted.
         username = request.form['username']
         password = request.form['password']
         #Here the identity object uses the add method to add the user to the mongo

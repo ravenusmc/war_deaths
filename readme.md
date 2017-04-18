@@ -1,7 +1,7 @@
 # War Deaths
 ## Intro
 
-    This project will be a project that will allow the user to look at US deaths
+This project will be a project that will allow the user to look at US deaths
 in the wars that it fought. I will attempt to use both Pandas and D3.JS to do this
 which I think it will be a great way to review some basic D3 concepts. The program
 will also have a basic user authentication system that I created with the Mongo DB.
@@ -11,7 +11,7 @@ to get myself ready for the skills USA competition in June of 2017.
 
 Again, I have a background in History and Political Science so this project really
 brings together my Humanities background as well as the tech side. Overall, I
-believe that it will be a fairly good project. 
+believe that it will be a fairly good project.
 
 
 # Getting started
