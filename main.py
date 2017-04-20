@@ -54,13 +54,15 @@ def sign_up():
 #This function will bring the user to the index page.
 @app.route('/index')
 def index():
+    #This line will ensure that the user is logged in.
+    if 'username' not in session:
+        return redirect(url_for('login'))
     return render_template('index.html', title='Login Page')
 
 #This function will allow the user to select what type of war data they want to
 #look at.
 @app.route('/data')
 def war_data():
-    name = "Mike"
     return render_template('war_data.html', title='War Data Page')
 
 @app.route('/sex_results', methods=['POST'])
@@ -68,6 +70,7 @@ def sex_results():
     sex = str(request.form['sex'])
     return render_template('sex_results.html', title="sex_results",  sex = sex)
 
+#This function is what will log out the user.
 @app.route('/logout')
 def logout():
     # remove the username from the session if it's there
