@@ -12,7 +12,7 @@ footer {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgba(28, 111, 237, 0.9);
+  background-color: rgba(218, 223, 232, 0.9);
 }
 
 /* CSS For Login Page */
@@ -49,7 +49,7 @@ footer {
 
 /* CSS for Nav Bar */
 nav {
-    background-color: rgb(171, 185, 209);
+    background-color: rgb(218, 223, 232);
     border-radius: 3px;
     padding: 15px 15px;
     margin-top: -20px;
@@ -130,6 +130,8 @@ header div {
 .asideOne {
     flex: 3;
     border-right: 2px solid black;
+    background-color: black;
+    color: white;
 }
 
 .homeMain {
@@ -139,8 +141,15 @@ header div {
 .Asidetwo {
     flex: 2;
     border-left: 2px solid black;
+    background-color: black;
+    color: white;
 }
 
 .Asidetwo_heading {
     text-align: center;
+}
+
+.link_color {
+    color: white;
+    text-decoration: none;
 }
