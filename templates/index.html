@@ -37,6 +37,7 @@
         }
     });
 
+    //All of the components here will make up the Home Page
     var Home = React.createClass({
       render: function() {
         return (
@@ -50,10 +51,77 @@
                     </div>
                 </section>
             </header>
+            <div className='homeFlex'>
+                <Asideone/>
+                <Main/>
+                <Asidetwo/>
+            </div>
           </div>
           )
       }
     })
+
+    var Asideone = React.createClass({
+        render: function() {
+            return (
+                <div className='asideOne'>
+                    <aside>
+                        <h1>Memorial Videos</h1>
+                        <h3>Vietnam Veterans Memoral Wall</h3>
+                        <iframe width="250" height="315" src="https://www.youtube.com/embed/wuxjTxxQUTs" frameborder="0" allowfullscreen></iframe>
+                        <h3>I was only 19</h3>
+                        <iframe width="250" height="315" src="https://www.youtube.com/embed/1gmgwx77osw" frameborder="0" allowfullscreen></iframe>
+                    </aside>
+                </div>
+            )
+        }
+    })
+
+    var Main = React.createClass({
+        render: function() {
+            return (
+                <div className='homeMain'>
+                    <h1>About Project</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia
+                        deserunt mollit anim id est laborum.
+                        </p>
+                    <hr/>
+                    <h1>Goals</h1>
+                        <h3>For Site</h3>
+                        <h3>Personal</h3>
+                    <hr/>
+                    <h1>Interest</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia
+                        deserunt mollit anim id est laborum.
+                        </p>
+                </div>
+            )
+        }
+    })
+
+    var Asidetwo = React.createClass({
+        render: function(){
+            return(
+                <div className='Asidetwo'>
+                    <h1 className='Asidetwo_heading'>War Info</h1>
+                </div>
+            )
+        }
+    })
+
+    // END OF HOME PAGE COMPONENTS
 
     //Using the form in this component like this-I am not even sure if this is right.
     ///However, for the purposes of this project, it works.

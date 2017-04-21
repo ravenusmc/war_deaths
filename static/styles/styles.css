@@ -42,7 +42,7 @@ html {
 
 /* CSS for Nav Bar */
 nav {
-    background-color: lightblue;
+    background-color: rgb(171, 185, 209);
     border-radius: 3px;
     padding: 15px 15px;
     margin-top: -20px;
@@ -52,11 +52,22 @@ nav ul {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+    text-decoration: none;
 }
 
 nav ul li {
     list-style: none;
     display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li a:hover {
+    background-color: black;
+    color: white;
 }
 
 /* CSS for Header */
@@ -99,4 +110,28 @@ header div {
   color: white;
   border-radius: 15px;
   text-align: center;
+}
+
+/* CSS for home page flex section */
+
+.homeFlex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.asideOne {
+    flex: 3;
+}
+
+.homeMain {
+    flex: 5;
+}
+
+.Asidetwo {
+    flex: 2;
+}
+
+.Asidetwo_heading {
+    text-align: center;
 }
