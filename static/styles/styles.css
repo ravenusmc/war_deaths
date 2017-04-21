@@ -122,6 +122,7 @@ header div {
 
 .asideOne {
     flex: 3;
+    border-right: 2px solid black;
 }
 
 .homeMain {
@@ -130,6 +131,7 @@ header div {
 
 .Asidetwo {
     flex: 2;
+    border-left: 2px solid black;
 }
 
 .Asidetwo_heading {

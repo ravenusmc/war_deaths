@@ -66,11 +66,11 @@
             return (
                 <div className='asideOne'>
                     <aside>
-                        <h1>Memorial Videos</h1>
+                        <h1 className='center'>Memorial Videos</h1>
                         <h3>Vietnam Veterans Memoral Wall</h3>
-                        <iframe width="250" height="315" src="https://www.youtube.com/embed/wuxjTxxQUTs" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="325" height="315" src="https://www.youtube.com/embed/wuxjTxxQUTs" frameborder="0" allowfullscreen></iframe>
                         <h3>I was only 19</h3>
-                        <iframe width="250" height="315" src="https://www.youtube.com/embed/1gmgwx77osw" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="325" height="315" src="https://www.youtube.com/embed/1gmgwx77osw" frameborder="0" allowfullscreen></iframe>
                     </aside>
                 </div>
             )
@@ -81,7 +81,7 @@
         render: function() {
             return (
                 <div className='homeMain'>
-                    <h1>About Project</h1>
+                    <h1 className='center'>About the Project</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore magna
                         aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -92,11 +92,21 @@
                         deserunt mollit anim id est laborum.
                         </p>
                     <hr/>
-                    <h1>Goals</h1>
-                        <h3>For Site</h3>
-                        <h3>Personal</h3>
+                    <h1 className='center'>Goals</h1>
+                        <h3>For Site:</h3>
+                            <ul>
+                                <li>Provide access to U.S. Casualities during war</li>
+                                <li>Provide a good visual respresentation of U.S war deaths</li>
+                                <li>Provide users access to other information about the U.S. wars</li>
+                            </ul>
+                        <h3>Personal:</h3>
+                        <ul>
+                            <li>Use basic aspects of React</li>
+                            <li>use Sessions with flask to help with Authentication</li>
+                            <li>Use D3.JS to display data</li>
+                        </ul>
                     <hr/>
-                    <h1>Interest</h1>
+                    <h1 className='center'>Interest</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore magna
                         aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -116,6 +126,17 @@
             return(
                 <div className='Asidetwo'>
                     <h1 className='Asidetwo_heading'>War Info</h1>
+                    <a href='https://en.wikipedia.org/wiki/American_Revolutionary_War'><h4 className='center'>American Revolutionary War</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/Mexican%E2%80%93American_War'><h4 className='center'>Mexican-American War</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/American_Civil_War'><h4 className='center'>Civil War</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/Spanish%E2%80%93American_War'><h4 className='center'>Spanish-American War</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/World_War_I'><h4 className='center'>World War One</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/World_War_II'><h4 className='center'>World War Two</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/Korean_War'><h4 className='center'>Korean War</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/Vietnam_War'><h4 className='center'>Vietnam</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/Gulf_War'><h4 className='center'>Persian Gulf War</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/Iraq_War'><h4 className='center'>Operation Iraqi Freedom</h4></a>
+                    <a href='https://en.wikipedia.org/wiki/War_in_Afghanistan_(2001%E2%80%932014)'><h4 className='center'>Operation Enduring Freedom</h4></a>
                 </div>
             )
         }
