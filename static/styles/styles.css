@@ -8,6 +8,13 @@ html {
     text-align: center;
 }
 
+footer {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(28, 111, 237, 0.9);
+}
+
 /* CSS For Login Page */
 
 #image {

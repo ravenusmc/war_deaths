@@ -26,6 +26,7 @@ Flask, Python 3.4, Pandas, Mongo DB and Numpy must be installed on your computer
 4. Numpy
 5. Mongo DB
 6. D3.JS
+7. React JS
 
 ### Operation
 

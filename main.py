@@ -54,10 +54,12 @@ def sign_up():
 #This function will bring the user to the index page.
 @app.route('/index')
 def index():
+    name = session['username']
+    print(name)
     #This line will ensure that the user is logged in.
     if 'username' not in session:
         return redirect(url_for('login'))
-    return render_template('index.html', title='Login Page')
+    return render_template('index.html', title='Login Page', name = name)
 
 #This function will allow the user to select what type of war data they want to
 #look at.
