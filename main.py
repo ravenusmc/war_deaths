@@ -9,6 +9,7 @@ import bcrypt
 
 #importing files that I made for this project
 from mongo import *
+from data import *
 
 #Setting up flask
 app = Flask(__name__)
@@ -69,8 +70,10 @@ def war_data():
 
 @app.route('/death_numbers', methods=['POST'])
 def death_numbers():
+    data = Data()
     number_entered = int(request.form['number'])
-    return render_template('death_numbers.html', title='Death By the Numbers', number = number_entered)
+    wars = data.dead(number_entered)
+    return render_template('death_numbers.html', title='Death By the Numbers', number = wars)
 
 @app.route('/sex_results', methods=['POST'])
 def sex_results():

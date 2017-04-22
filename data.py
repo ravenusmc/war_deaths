@@ -8,6 +8,18 @@ import numpy as np
 #This class will deal with all the methods that will handle the data.
 class Data():
 
-    def dead(self, number):
+    # def dead(self, number):
+    #     self.__data = pd.read_csv('data.csv')
+    #     wars = self.__data[(self.__data.Dead >= number)]
+    #     print(wars)
+
+    def dead(self):
         self.__data = pd.read_csv('data.csv')
-        wars = self.__data[(self.__data.Dead >= number)]
+        wars = self.__data[(self.__data.Dead >= 600000)]
+        wars = wars.iat([0],[0])
+        print(wars)
+        # war_names = wars[[0]]
+        # print(war_names[[0]][1])
+
+data = Data()
+data.dead()
