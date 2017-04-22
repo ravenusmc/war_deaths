@@ -82,14 +82,15 @@
             return (
                 <div className='homeMain'>
                     <h1 className='center'>About the Project</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                        occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum.
+                        <p>This project has two main goals. The first is to continue
+                        my web development goals. The second is to make a web site
+                        that brings some awareness to U.S. Causalities from all of its
+                        wars. In March of 2017, I volunteered at an event called the
+                        wall that heals. This wall is a replica of the Vietnam wall.
+                        I watched many people look at the replica and could see that
+                        they were very touched by it. Thus, I have decided to make a
+                        project that enhances both my web development skills and teaches
+                        others about the wars our country has fought.
                         </p>
                     <hr/>
                     <h1 className='center'>Goals</h1>
@@ -107,14 +108,12 @@
                         </ul>
                     <hr/>
                     <h1 className='center'>Interest</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                        occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum.
+                        <p>I am a former Marine Captain and I am very interested in
+                        warfare. I also have to say that I am interested in how
+                        people remember the wars. Thus, I decided to build this
+                        site which would look at U.S. Causalites of all the major wars
+                        that it has fought. I hope that it will allow people to have a
+                        greater understanding of the sacrifice that the military makes.
                         </p>
                 </div>
             )
@@ -144,26 +143,89 @@
 
     // END OF HOME PAGE COMPONENTS
 
+    //Start of Data components
+
     //Using the form in this component like this-I am not even sure if this is right.
     ///However, for the purposes of this project, it works.
     var Data = React.createClass({
     render: function() {
         return (
           <div>
-            <h2>Data</h2>
-            <p>Mauris sem velit, vehicula eget sodales vitae,
-            rhoncus eget sapien:</p>
-            <form  method='POST' action='/sex_results'>
-                <p>Please select only one choice:
-                <input type='radio' name='sex' value='male'/>Male
-                <input type='radio' name='sex' value='female'/>Female
-                <input type='submit'/>
-                </p>
-            </form>
+            <Datahome/>
           </div>
         );
       }
   });
+
+  var Datahome = React.createClass({
+    render: function() {
+      return (
+        <div>
+          <header className='data_home'>
+              <section className='banner'>
+                  <div class='inner'>
+                      <h1>U.S. War Deaths</h1>
+                      <hr/>
+                      <h1>Examining the Data</h1>
+                  </div>
+              </section>
+          </header>
+          <div className='dataFlex'>
+            <Asidedata/>
+            <Datamain/>
+          </div>
+          <Footer/>
+        </div>
+        )
+    }
+  })
+
+  var Asidedata = React.createClass({
+      render: function(){
+          return (
+              <div className='dataAside'>
+                <h1 className='center'>Help Section</h1>
+                <p>On the right hand side the user will find different forms that
+                may be filled out to look at specific data.</p>
+                <p>The lines, between each data set, are what the user can look
+                at. Thus, the user cannot select more than one area to see data and
+                only one form may be selected at a time.</p>
+                <p>The user may come back to this page though to look at a new data
+                from a different form.</p>
+              </div>
+          )
+      }
+  })
+
+  var Datamain = React.createClass({
+      render: function(){
+          return (
+              <div className='dataMain'>
+                <h1 className='center'>Data Choices</h1>
+                <Wardeaths/>
+                <hr/>
+              </div>
+          )
+      }
+  })
+
+  var Wardeaths = React.createClass({
+      render: function(){
+          return (
+              <div>
+                <h3>By the numbers</h3>
+                <p>Please enter a number and the data returned will be the wars
+                which have that number and higher</p>
+                <form class='form_three' method='POST' action='/death_numbers'>
+                    <input name='number' type='NUMBER'/>
+                    <input type='submit'/>
+                </form>
+              </div>
+          )
+      }
+  })
+
+  // END OF DATA COMPONENTS
 
   var Graph = React.createClass({
   render: function() {

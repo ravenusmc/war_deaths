@@ -67,6 +67,11 @@ def index():
 def war_data():
     return render_template('war_data.html', title='War Data Page')
 
+@app.route('/death_numbers', methods=['POST'])
+def death_numbers():
+    number_entered = int(request.form['number'])
+    return render_template('death_numbers.html', title='Death By the Numbers', number = number_entered)
+
 @app.route('/sex_results', methods=['POST'])
 def sex_results():
     sex = str(request.form['sex'])
