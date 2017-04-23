@@ -201,5 +201,23 @@ header div {
     height: 550px;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
 
+.main_data_deaths {
+    margin-top: -30px;
+    background-color: black;
+    color: white;
+}
+
+.main_data_div {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.death_list {
+    text-align: center;
+}
+
+.death_list li {
+    display: inline-block;
 }

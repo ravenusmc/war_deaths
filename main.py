@@ -73,7 +73,7 @@ def death_numbers():
     data = Data()
     number_entered = int(request.form['number'])
     wars = data.dead(number_entered)
-    return render_template('death_numbers.html', title='Death By the Numbers', number = wars)
+    return render_template('death_numbers.html', title='Death By the Numbers', numbers = wars, deaths = number_entered)
 
 @app.route('/sex_results', methods=['POST'])
 def sex_results():
