@@ -204,6 +204,7 @@
                 <h1 className='center'>Data Choices</h1>
                 <Wardeaths/>
                 <hr/>
+                <Warwounded/>
               </div>
           )
       }
@@ -212,11 +213,27 @@
   var Wardeaths = React.createClass({
       render: function(){
           return (
-              <div>
-                <h3>By the numbers</h3>
+              <div className='numbersArea'>
+                <h3>Looking at Deaths</h3>
                 <p>Please enter a number and the data returned will be the wars
                 which have that number and higher</p>
-                <form class='form_three' method='POST' action='/death_numbers'>
+                <form method='POST' action='/death_numbers'>
+                    <input name='number' type='NUMBER'/>
+                    <input type='submit'/>
+                </form>
+              </div>
+          )
+      }
+  })
+
+  var Warwounded = React.createClass({
+      render: function(){
+          return (
+              <div className='numbersArea'>
+                <h3>Looking at the wounded</h3>
+                <p>Please enter a number and the data returned will be the wars
+                which have that number and higher</p>
+                <form method='POST' action='/death_numbers'>
                     <input name='number' type='NUMBER'/>
                     <input type='submit'/>
                 </form>

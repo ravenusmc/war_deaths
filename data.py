@@ -24,6 +24,18 @@ class Data():
             count += 1
         return wars
 
+    def wounded(self, number):
+        self.__data = pd.read_csv('data.csv')
+        self.__data = self.__data[(self.__data.Wounded >= number)]
+        count = 0
+        wars = []
+        while count < len(self.__data):
+            war = self.__data.iloc[count][0]
+            wars.append(war)
+            count += 1
+        print(wars)
+        return wars
 
-# data = Data()
-# data.dead()
+
+data = Data()
+data.wounded(30000)

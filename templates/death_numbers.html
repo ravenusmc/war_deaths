@@ -1,50 +1,83 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<nav>
-    <ul>
-        <li><a href='/index'>Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-        <li><a href="/data">Data</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-        <li><a href="/Graph">Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-        <li><a href='/logout'>Sign Out</a></li>
-    </ul>
-</nav>
 
-<header class='war_deaths'>
-    <section class='banner'>
-        <div class='inner'>
-            <h1>U.S. War Deaths</h1>
-            <hr/>
-            <h1>The Results Resquested</h1>
-        </div>
-    </section>
-</header>
-
-<main class='main_data_deaths'>
-    <div class='main_data_div'>
-        <h1 class="center">Here are the results for wars which had above {{ deaths }} deaths: </h1>
-            <ol class='death_list'>
-            {% for number in numbers %}
-                <li>{{ number }}&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            {% endfor %}
-            </ol>
-    </div>
-</main>
-
-<div>
-    <footer>
-        Copyright &copy; 2017 Double Sun Productions
-        <br/>
-        <p>
-          <a href="https://github.com/ravenusmc"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-          <a href="https://twitter.com/"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
-          <a href="https://www.linkedin.com/in/mcuddy1/"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
-        </p>
-    </footer>
+<div id='container'>
 </div>
 
 
+<script type="text/babel">
 
+    class Nav extends React.Component {
+        render() {
+            return <div>
+                <nav>
+                    <ul>
+                        <li><a href='/index'>Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href="/data">Data</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href="/Graph">Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href='/logout'>Sign Out</a></li>
+                    </ul>
+                </nav>
+                <Header/>
+                <Main/>
+                <Footer/>
+            </div>
+        }
+    }
 
+    class Header extends React.Component {
+        render() {
+            return <div>
+            <header className='war_deaths'>
+                <section className='banner'>
+                    <div className='inner'>
+                        <h1>U.S. War Deaths</h1>
+                        <hr/>
+                        <h1>The Results Resquested</h1>
+                    </div>
+                </section>
+            </header>
+            </div>
+        }
+    }
+
+    class Main extends React.Component {
+        render() {
+            return <div>
+                <main className='main_data_deaths'>
+                    <div className='main_data_div'>
+                        <h1 className="center">Here are the results for wars which had above {{ deaths }} deaths: </h1>
+                            <ol className='death_list'>
+                            {% for number in numbers %}
+                                <li>{{ number }}&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            {% endfor %}
+                            </ol>
+                    </div>
+                </main>
+            </div>
+        }
+    }
+
+    class Footer extends React.Component {
+        render() {
+            return <div>
+                <footer>
+                    Copyright &copy; 2017 Double Sun Productions
+                    <br/>
+                    <p>
+                      <a href="https://github.com/ravenusmc"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                      <a href="https://twitter.com/"><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+                      <a href="https://www.linkedin.com/in/mcuddy1/"><i className="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                    </p>
+                </footer>
+            </div>
+        }
+    }
+
+    ReactDOM.render(<Nav/>,
+        document.getElementById('container'))
+
+</script>
 
 {% endblock %}

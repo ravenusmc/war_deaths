@@ -192,6 +192,11 @@ header div {
     flex: 6;
 }
 
+.numbersArea {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 /* CSS for Header on death numbers */
 
 .war_deaths {

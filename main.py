@@ -62,12 +62,7 @@ def index():
         return redirect(url_for('login'))
     return render_template('index.html', title='Login Page', name = name)
 
-#This function will allow the user to select what type of war data they want to
-#look at.
-@app.route('/data')
-def war_data():
-    return render_template('war_data.html', title='War Data Page')
-
+#This function will display the wars where a specific amount of people died.
 @app.route('/death_numbers', methods=['POST'])
 def death_numbers():
     data = Data()
@@ -75,10 +70,13 @@ def death_numbers():
     wars = data.dead(number_entered)
     return render_template('death_numbers.html', title='Death By the Numbers', numbers = wars, deaths = number_entered)
 
-@app.route('/sex_results', methods=['POST'])
-def sex_results():
-    sex = str(request.form['sex'])
-    return render_template('sex_results.html', title="sex_results",  sex = sex)
+#This function will display the data where a specific amount of people were wounded
+@app.route('/wounded', methods=['POST'])
+def wounded():
+    data = Data()
+    number_entered = int(request.form['number'])
+    wars = data.wounded(number_entered)
+    return render_template('wounded.html', title='Wounded in War', wounded = number_entered)
 
 #This function is what will log out the user.
 @app.route('/logout')
