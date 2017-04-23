@@ -13,13 +13,17 @@ class Data():
     #     wars = self.__data[(self.__data.Dead >= number)]
     #     print(wars)
 
-    def dead(self):
+    def dead(self, number):
         self.__data = pd.read_csv('data.csv')
-        wars = self.__data[(self.__data.Dead >= 600000)]
-        wars = wars.iat([0],[0])
-        print(wars)
-        # war_names = wars[[0]]
-        # print(war_names[[0]][1])
+        self.__data = self.__data[(self.__data.Dead >= number)]
+        count = 0
+        wars = []
+        while count < len(self.__data):
+            war = self.__data.iloc[count][0]
+            wars.append(war)
+            count += 1
+        return wars
 
-data = Data()
-data.dead()
+
+# data = Data()
+# data.dead()

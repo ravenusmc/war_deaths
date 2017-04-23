@@ -191,3 +191,15 @@ header div {
 .dataMain {
     flex: 6;
 }
+
+/* CSS for Header on death numbers */
+
+.war_deaths {
+    margin-top: -15px;
+    padding-top: 100px;
+    background-image: url(https://source.unsplash.com/Uo57slslxF0);
+    height: 550px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}

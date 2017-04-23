@@ -3,12 +3,22 @@
 {% block body %}
 <nav>
     <ul>
-        <li><Link to="/">Home</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
-        <li><Link to="/Data">Data</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
-        <li><Link to="/Graph">Graph</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li><a href='/index'>Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li><a href="/Data">Data</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li><a href="/Graph">Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
         <li><a href='/logout'>Sign Out</a></li>
     </ul>
 </nav>
+
+<header class='war_deaths'>
+    <section class='banner'>
+        <div class='inner'>
+            <h1>U.S. War Deaths</h1>
+            <hr/>
+            <h1>The Results Resquested</h1>
+        </div>
+    </section>
+</header>
 
 <p>{{ number }}</p>
 
