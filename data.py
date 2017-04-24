@@ -33,7 +33,6 @@ class Data():
             war = self.__data.iloc[count][0]
             wars.append(war)
             count += 1
-        print(wars)
         return wars
 
 

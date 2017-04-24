@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div id='container'>
+</div>
+
+<p>{{ wounded }}</p>
+
+<script type="text/babel">
+
+    class Nav extends React.Component {
+        render() {
+            return <div>
+                <nav>
+                    <ul>
+                        <li><a href='/index'>Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href="/data">Data</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href="/Graph">Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href='/logout'>Sign Out</a></li>
+                    </ul>
+                </nav>
+                <Header/>
+            </div>
+        }
+    }
+
+    class Header extends React.Component {
+        render() {
+            return <div>
+            <header className='war_deaths'>
+                <section className='banner'>
+                    <div className='inner'>
+                        <h1>Wounded in War</h1>
+                        <hr/>
+                        <h1>The Results Resquested</h1>
+                    </div>
+                </section>
+            </header>
+            </div>
+        }
+    }
+
+    ReactDOM.render(<Nav/>,
+        document.getElementById('container')
+    )
+
+</script>
+
+
+{% endblock %}

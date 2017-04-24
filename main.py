@@ -76,12 +76,13 @@ def death_numbers():
     return render_template('death_numbers.html', title='Death By the Numbers', numbers = wars, deaths = number_entered)
 
 #This function will display the data where a specific amount of people were wounded
-# @app.route('/wounded', methods=['POST'])
-# def wounded():
-#     data = Data()
-#     number_entered = int(request.form['number'])
-#     wars = data.wounded(number_entered)
-#     return render_template('wounded.html', title='Wounded in War', wounded = number_entered)
+@app.route('/wounded', methods=['POST'])
+def wounded():
+    data = Data()
+    number_entered = int(request.form['number'])
+    wars = data.wounded(number_entered)
+    print(wars)
+    return render_template('wounded.html', title='Wounded in War', wounded = number_entered)
 
 #This function is what will log out the user.
 @app.route('/logout')
