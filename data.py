@@ -37,5 +37,5 @@ class Data():
         return wars
 
 
-data = Data()
-data.wounded(30000)
+# data = Data()
+# data.wounded(30000)

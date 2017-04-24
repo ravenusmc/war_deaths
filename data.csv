@@ -1,4 +1,4 @@
-War,Start Date,End Date,Combat,Other,Dead,Wounded,Dead & Wounded,Population at start
+War,Start_Date,End_Date,Combat,Other,Dead,Wounded,Dead_Wounded,Population_at_start
 Civil War,1861,1865,214938,500000,750000,,,31443000
 World War II,1941,1945,291557,113842,405399,670846,1076245,133402000
 World War I,1917,1918,53402,63114,116516,204002,320518,103268000

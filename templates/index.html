@@ -227,20 +227,66 @@
   })
 
   var Warwounded = React.createClass({
-      render: function(){
+      getInitialState(){
+          return {check: true}
+      },
+      change(){
+          this.setState({check: false})
+      },
+      renderForm(){
           return (
-              <div className='numbersArea'>
-                <h3>Looking at the wounded</h3>
-                <p>Please enter a number and the data returned will be the wars
-                which have that number and higher</p>
-                <form method='POST' action='/death_numbers'>
-                    <input name='number' type='NUMBER'/>
-                    <input type='submit'/>
-                </form>
+        <div className='numbersArea'>
+            <h3>Looking at the wounded</h3>
+            <p>Please enter a number and the data returned will be the wars
+            which have that number and higher</p>
+            <form method='POST' action='/index'>
+                <input name='number' type='NUMBER'/>
+                <input type='submit' onClick={this.change}/>
+            </form>
+
+        </div>
+        )
+      },
+      results(){
+          return(
+              <div>
+                <h1>Hello World</h1>
+                {% for value in values %}
+                    {{ value }}
+                {% endfor %}
               </div>
           )
+      },
+      render: function(){
+        if(this.state.check){
+            return this.renderForm()
+        }else{
+            return this.results()
+        }
       }
   })
+
+  // var Warwounded = React.createClass({
+  //     getInitialState(){
+  //         return {check: false}
+  //     },
+  //     change(){
+  //         this.setState({check: true})
+  //     },
+  //     render: function(){
+  //         return (
+  //             <div className='numbersArea'>
+  //               <h3>Looking at the wounded</h3>
+  //               <p>Please enter a number and the data returned will be the wars
+  //               which have that number and higher</p>
+  //               <form method='POST' action='/death_numbers'>
+  //                   <input name='number' type='NUMBER'/>
+  //                   <input type='submit'/>
+  //               </form>
+  //             </div>
+  //         )
+  //     }
+  // })
 
   // END OF DATA COMPONENTS
 

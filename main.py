@@ -53,13 +53,18 @@ def sign_up():
     return render_template('sign_up.html', title='Sign Up Page')
 
 #This function will bring the user to the index page.
-@app.route('/index')
+@app.route('/index', methods=['GET', 'POST'])
 def index():
-    name = session['username']
-    print(name)
     #This line will ensure that the user is logged in.
     if 'username' not in session:
         return redirect(url_for('login'))
+    name = session['username']
+    if request.method == 'POST':
+        data = Data()
+        number_entered = int(request.form['number'])
+        values = data.wounded(number_entered)
+        print(values)
+        return values
     return render_template('index.html', title='Login Page', name = name)
 
 #This function will display the wars where a specific amount of people died.
@@ -71,12 +76,12 @@ def death_numbers():
     return render_template('death_numbers.html', title='Death By the Numbers', numbers = wars, deaths = number_entered)
 
 #This function will display the data where a specific amount of people were wounded
-@app.route('/wounded', methods=['POST'])
-def wounded():
-    data = Data()
-    number_entered = int(request.form['number'])
-    wars = data.wounded(number_entered)
-    return render_template('wounded.html', title='Wounded in War', wounded = number_entered)
+# @app.route('/wounded', methods=['POST'])
+# def wounded():
+#     data = Data()
+#     number_entered = int(request.form['number'])
+#     wars = data.wounded(number_entered)
+#     return render_template('wounded.html', title='Wounded in War', wounded = number_entered)
 
 #This function is what will log out the user.
 @app.route('/logout')
