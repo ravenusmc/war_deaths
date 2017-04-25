@@ -87,6 +87,13 @@ def wounded():
 def graph_page():
     return render_template('graph.html', title='Graph Page')
 
+@app.route('/my/data/endpoint')
+def get_d3_data():
+    data = Data()
+    data_file = data.convert_csv_for_d3()
+    # df = pandas.DataFrame(...) # Constructed however you need it
+    return data_file.to_csv()
+
 #This function is what will log out the user.
 @app.route('/logout')
 def logout():
@@ -98,4 +105,5 @@ def logout():
 app.secret_key = 'n3A\xef(\xb0Cf^\xda\xf7\x97\xb1x\x8e\x94\xd5r\xe0\x11\x88\x1b\xb9'
 
 #This line will actually run the app.
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

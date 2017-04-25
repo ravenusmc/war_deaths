@@ -35,6 +35,11 @@ class Data():
             count += 1
         return wars
 
+    def convert_csv_for_d3(self):
+        self.__data = pd.read_csv('data.csv')
+        df = pd.DataFrame(self.__data)
+        return df
+
 
 # data = Data()
-# data.wounded(30000)
+# data.test()

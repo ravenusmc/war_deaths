@@ -2,26 +2,23 @@
 
 {% block body %}
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<body>
-
-<div id='container'>
-</div>
-
-<script>
-    var dataset = [5,10,15,20,25,30];
-    d3.select('main').selectAll("p")
-        .data(dataset)
-        .enter()
-        .append("p")
-        .text('Hello Mike');
-</script>
 
 <main>
-    <h1>Graph of U.S. Deaths in its Wars</h1>
 </main>
 
+<script>
 
-<div>
+    d3.tsv("/my/data/endpoint", function(data) {
+        console.log(data); 
+    });
+
+
+</script>
+
+
+
+
+<!-- <div>
     <footer>
         Copyright &copy; 2017 Double Sun Productions
         <br/>
@@ -31,104 +28,6 @@
           <a href="https://www.linkedin.com/in/mcuddy1/"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
         </p>
     </footer>
-</div>
+</div> -->
 
-<script type="text/babel">
-
-    var { Router,
-        Route,
-        IndexRoute,
-        IndexLink,
-        hashHistory,
-        Link } = ReactRouter;
-
-    var destination = document.querySelector("#container");
-
-    var Navbar = React.createClass({
-        render: function(){
-            return (
-                <div>
-                    <nav>
-                        <ul>
-                            <li><Link to="/">Home</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <li><Link to="/Data">Data</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <li><Link to="/Graph">About</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <li><a href='/graph_page'>Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <li><a href='/logout'>Sign Out</a></li>
-                        </ul>
-                    </nav>
-                    <div>
-                        {this.props.children}
-                    </div>
-                </div>
-            )
-        }
-    });
-
-    //All of the components here will make up the Home Page
-    var Home = React.createClass({
-      render: function() {
-        return (
-          <div>
-            <header className='graph_home'>
-                <section className='banner'>
-                    <div class='inner'>
-                        <h1>U.S. War Graphs</h1>
-                        <hr/>
-                        <h1>Examining the Graphs</h1>
-                    </div>
-                </section>
-            </header>
-          </div>
-          )
-      }
-    })
-
-    //Using the form in this component like this-I am not even sure if this is right.
-    ///However, for the purposes of this project, it works.
-    var Data = React.createClass({
-    render: function() {
-        return (
-          <div>
-            <Datahome/>
-          </div>
-        );
-      }
-  });
-
-  var Graph = React.createClass({
-  render: function() {
-      return (
-        <div>
-          <h2>Graph</h2>
-          <p>Mauris sem velit, vehicula eget sodales vitae,
-          rhoncus eget sapien:</p>
-          <ol>
-            <li>Nulla pulvinar diam</li>
-            <li>Facilisis bibendum</li>
-            <li>Vestibulum vulputate</li>
-            <li>{{ name2 }}</li>
-            <li>{{ name }}</li>
-          </ol>
-        </div>
-      );
-    }
-});
-
-
-    ReactDOM.render(
-      <Router history={ReactRouter.hashHistory}>
-        <Route path="/" component={Navbar}>
-        <IndexRoute component={Home}/>
-        <Route path="data" component={Data} />
-        <Route path="graph" component={Graph} />
-        </Route>
-      </Router>,
-      destination
-    );
-
-
-</script>
-
-</body>
 {% endblock %}
