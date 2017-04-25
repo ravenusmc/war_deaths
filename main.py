@@ -81,8 +81,11 @@ def wounded():
     data = Data()
     number_entered = int(request.form['number'])
     wars = data.wounded(number_entered)
-    print(wars)
-    return render_template('wounded.html', title='Wounded in War', wounded = number_entered)
+    return render_template('wounded.html', title='Wounded in War', wounded = number_entered, wars = wars)
+
+@app.route('/graph_page')
+def graph_page():
+    return render_template('graph.html', title='Graph Page')
 
 #This function is what will log out the user.
 @app.route('/logout')

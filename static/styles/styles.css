@@ -195,6 +195,13 @@ header div {
 .numbersArea {
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 25px;
+}
+
+.woundedArea {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 25px;
 }
 
 /* CSS for Header on death numbers */
@@ -225,4 +232,14 @@ header div {
 
 .death_list li {
     display: inline-block;
+}
+
+/* CSS for Graph Page */
+.graph_home {
+  margin-top: -15px;
+  padding-top: 100px;
+  background-image: url(https://source.unsplash.com/t5BvA-Q_m_Y);
+  height: 550px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }

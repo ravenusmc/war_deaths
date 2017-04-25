@@ -5,8 +5,6 @@
 <div id='container'>
 </div>
 
-<p>{{ wounded }}</p>
-
 <script type="text/babel">
 
     class Nav extends React.Component {
@@ -21,6 +19,8 @@
                     </ul>
                 </nav>
                 <Header/>
+                <Main/>
+                <Footer/>
             </div>
         }
     }
@@ -37,6 +37,39 @@
                     </div>
                 </section>
             </header>
+            </div>
+        }
+    }
+
+    class Main extends React.Component {
+        render() {
+            return <div>
+                <main className='main_data_deaths'>
+                    <div className='main_data_div'>
+                        <h1 className="center">Here are the results for wars which had above {{ wounded }} wounded: </h1>
+                            <ol className='death_list'>
+                            {% for war in wars %}
+                                <li>{{ war }}</li>&nbsp;&nbsp;&nbsp;&nbsp;
+                            {% endfor %}
+                            </ol>
+                    </div>
+                </main>
+            </div>
+        }
+    }
+
+    class Footer extends React.Component {
+        render() {
+            return <div>
+                <footer>
+                    Copyright &copy; 2017 Double Sun Productions
+                    <br/>
+                    <p>
+                      <a href="https://github.com/ravenusmc"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                      <a href="https://twitter.com/"><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+                      <a href="https://www.linkedin.com/in/mcuddy1/"><i className="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                    </p>
+                </footer>
             </div>
         }
     }

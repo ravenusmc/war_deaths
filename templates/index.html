@@ -24,7 +24,8 @@
                         <ul>
                             <li><Link to="/">Home</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
                             <li><Link to="/Data">Data</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <li><Link to="/Graph">Graph</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><Link to="/Graph">About</Link></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><a href='/graph_page'>Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
                             <li><a href='/logout'>Sign Out</a></li>
                         </ul>
                     </nav>
@@ -229,8 +230,8 @@
   var Warwounded = React.createClass({
       render: function(){
           return (
-              <div className='numbersArea'>
-                <h3>Looking at the wounded</h3>
+              <div className='woundedArea'>
+                <h3>Looking at the Wounded</h3>
                 <p>Please enter a number and the data returned will be the wars
                 which have that number and higher</p>
                 <form method='POST' action='/wounded'>
