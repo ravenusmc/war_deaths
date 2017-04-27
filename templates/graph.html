@@ -3,11 +3,13 @@
 {% block body %}
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <style>
+
     div.bar {
         display: inline-block;
         width: 20px;
         height: 75px;
         background-color: teal;
+        margin-right: 10px;
     }
 
 </style>
@@ -31,20 +33,22 @@
         for (let i = 0; i < data.length; i++){
             let war = data[i].War;
             let death = data[i].Dead;
-            //I am dividing the Death number by 100 to bring them down.
-            death = Number(death) / 100;
+            //I am dividing the Death number by 1000 to bring them down.
+            death = Number(death) / 1000;
             deaths.push(death)
             warData.push({ War: war, Deaths: death })
         }
 
     console.log(deaths)
 
-    let dataset = [ 5, 10, 15,20, 25]
     d3.select('body').selectAll('div')
         .data(deaths)
         .enter()
         .append('div')
-        .attr("class", "bar");
+        .attr("class", "bar")
+        .style("height", function(d) {
+            return d + "px";
+        });
 
 
 
