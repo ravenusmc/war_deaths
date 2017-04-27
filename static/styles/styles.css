@@ -4,8 +4,15 @@ html {
   height: 100%;
 }
 
+
 .center {
     text-align: center;
+}
+
+#nobel-bar {
+    width: 600px;
+    height: 400px;
+    background-color: green;
 }
 
 footer {

@@ -2,10 +2,20 @@
 
 {% block body %}
 <script src="https://d3js.org/d3.v4.min.js"></script>
+<style>
+    div.bar {
+        display: inline-block;
+        width: 20px;
+        height: 75px;
+        background-color: teal;
+    }
 
-<main>
+</style>
 
-</main>
+<div></div>
+
+<!-- <main>
+</main> -->
 
 <script>
     'use strict';
@@ -13,6 +23,7 @@
     //This will be a global variable which will be an array of objects
     //to hold all of my data in from the CSV file.
     const warData = [];
+    const deaths = [];
 
     //This function will start the d3 process by pulling the lines of code
     //from the CSV file.
@@ -20,53 +31,69 @@
         for (let i = 0; i < data.length; i++){
             let war = data[i].War;
             let death = data[i].Dead;
-            death = Number(death);
+            //I am dividing the Death number by 100 to bring them down.
+            death = Number(death) / 100;
+            deaths.push(death)
             warData.push({ War: war, Deaths: death })
         }
-        // console.log(warData[1].War)
 
-        let chartHolder = d3.select('main');
+    console.log(deaths)
 
-        let w = 800;
-        let h = 300;
-        let barPadding = 1;
-        let margin = {top:20, right:20, bottom:30, left:40};
-        let boundingRect = chartHolder.node().getBoundingClientRect();
-        let width = boundingRect.width - margin.left - margin.right;
-        let height = boundingRect.height - margin.top - margin.bottom;
-        let barWidth = w / warData.length;
+    let dataset = [ 5, 10, 15,20, 25]
+    d3.select('body').selectAll('div')
+        .data(deaths)
+        .enter()
+        .append('div')
+        .attr("class", "bar");
 
-        let svg = d3.select("main").append("svg")
-                .attr("width", w)
-                .attr("height", h);
 
+
+
+
+
+        ///SOME WHAT WORKS
+        // let chartHolder = d3.select('#nobel-bar');
+        //
+        // let margin = {top:20, right:20, bottom:30, left:40};
+        // let width = 500;
+        // let height = 500;
+        // let barWidth = w / warData.length;
+        //
+        // let svg = d3.select('#nobel-bar').append("svg")
+        //     .attr("width", width + margin.left + margin.right)
+        //     .attr("height", height + margin.top + margin.bottom )
+        //     .append('g').classed('chart', true)
+        //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        //
         // warData.forEach(function(d, i){
         //     svg.append('rect').classed('bar', true)
         //         .attr('height', d.Deaths / 10)
         //         .attr('width', barWidth)
-        //         .attr('y', d.Deaths - height)
-        //         .attr('x', i * (barWidth))
+        //         .attr('y', height)
+        //         .attr('x', d.Deaths / 10)
         //         .attr("fill", function(d) {
         //         	return "rgb(0, 0, 0)";
         //         });
         // })
+        ////////// END OF SOMEWHAT WORKS
 
-        warData.forEach(function(d, i){
-            svg.selectAll("rect")
-                .data(warData)
-                .enter()
-                .append("rect")
-                .attr("x", function(d, i) {
-                   	return i * (w / warData.length);
-                })
-                .attr('y', d.Deaths - height)
-                .attr("width", w / warData.length)
-                .attr('height', d.Deaths / 10)
-                .attr("fill", function(d) {
-                    return "rgb(0, 0, 0)";
-                });
-                console.log()
-        })
+        // warData.forEach(function(d, i){
+        //     svg.selectAll("rect")
+        //         .data(warData)
+        //         .enter()
+        //         .append("rect")
+        //         .attr("x", function(d, i) {
+        //            	return i * (w / warData.length);
+        //         })
+        //         .attr('y', d.Deaths - height)
+        //         .attr("width", w / warData.length)
+        //         .attr('height', function(d){
+        //             return d;
+        //         })
+        //         .attr("fill", function(d) {
+        //             return "rgb(0, 0, 0)";
+        //         });
+        // })
 
         // let dataset =[34,23,12];
         // svg.selectAll("rect")
