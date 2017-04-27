@@ -23,12 +23,10 @@
             death = Number(death);
             warData.push({ War: war, Deaths: death })
         }
-
         // console.log(warData[1].War)
 
         let chartHolder = d3.select('main');
 
-        // let dataset =[34,23,12];
         let w = 800;
         let h = 300;
         let barPadding = 1;
@@ -42,14 +40,35 @@
                 .attr("width", w)
                 .attr("height", h);
 
+        // warData.forEach(function(d, i){
+        //     svg.append('rect').classed('bar', true)
+        //         .attr('height', d.Deaths / 10)
+        //         .attr('width', barWidth)
+        //         .attr('y', d.Deaths - height)
+        //         .attr('x', i * (barWidth))
+        //         .attr("fill", function(d) {
+        //         	return "rgb(0, 0, 0)";
+        //         });
+        // })
+
         warData.forEach(function(d, i){
-            svg.append('rect').classed('bar', true)
-                .attr('height', d.Deaths)
-                .attr('width', barWidth)
-                .attr('y', height - d.Deaths)
-                .attr('x',i*(barWidth));
+            svg.selectAll("rect")
+                .data(warData)
+                .enter()
+                .append("rect")
+                .attr("x", function(d, i) {
+                   	return i * (w / warData.length);
+                })
+                .attr('y', d.Deaths - height)
+                .attr("width", w / warData.length)
+                .attr('height', d.Deaths / 10)
+                .attr("fill", function(d) {
+                    return "rgb(0, 0, 0)";
+                });
+                console.log()
         })
 
+        // let dataset =[34,23,12];
         // svg.selectAll("rect")
         //    .data(dataset)
         //    .enter()
