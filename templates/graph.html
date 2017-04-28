@@ -31,7 +31,9 @@
 <main>
 </main>
 
-<!-- <footer>
+
+
+<footer>
     Copyright &copy; 2017 Double Sun Productions
     <br/>
     <p>
@@ -39,7 +41,7 @@
       <a href="https://twitter.com/"><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
       <a href="https://www.linkedin.com/in/mcuddy1/"><i className="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
     </p>
-</footer> -->
+</footer>
 
 <script>
     'use strict';
@@ -78,7 +80,6 @@
                 .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
     let xScale = d3.scaleLinear()
-                        // .domain([0, d3.max(deaths, function(d) { return d[0]; })])
                         .domain([0, 500])
                         .range([0, 500]);
 
@@ -88,7 +89,7 @@
 
     let xAxis = d3.axisBottom()
     				.scale(xScale)
-                    .ticks(5);
+                    .ticks(10);
 
     let yAxis = d3.axisLeft()
     				.scale(yScale)
@@ -117,14 +118,23 @@
 
     //Create X axis
     svg.append("g")
-        .attr("class", "axis")
-        .attr("transform", "translate(0," + (h - padding) + ")")
-        .call(xAxis);
+            .attr("class", "axis")
+            .attr("transform", "translate(0," + 500 + ")")
+            .call(xAxis)
+        .selectAll("text")
+            .data(warData)
+            .text(function(d){
+                return d.War;
+            })
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", "-.55em")
+            .attr("transform", "rotate(-45)" );
 
     //Create Y axis
     svg.append("g")
         .attr("class", "axis")
-        .attr("transform", "translate(" + padding + ",0)")
+        .attr("transform", "translate(" + 0+ ",0)")
         .call(yAxis);
 
 
