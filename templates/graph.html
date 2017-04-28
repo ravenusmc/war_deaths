@@ -2,22 +2,44 @@
 
 {% block body %}
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<style>
+<!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+<style type="text/css">
 
-    div.bar {
-        display: inline-block;
-        width: 20px;
-        height: 75px;
-        background-color: teal;
-        margin-right: 10px;
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;
     }
 
+    .axis text {
+        font-family: sans-serif;
+        font-size: 11px;
+    }
 </style>
 
-<div></div>
+<nav>
+    <ul>
+        <li><a href='/index'>Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li><a href="/data">Data</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li><a href="/Graph">Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li><a href='/logout'>Sign Out</a></li>
+    </ul>
+</nav>
 
-<!-- <main>
-</main> -->
+
+<main>
+</main>
+
+<!-- <footer>
+    Copyright &copy; 2017 Double Sun Productions
+    <br/>
+    <p>
+      <a href="https://github.com/ravenusmc"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/"><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/mcuddy1/"><i className="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+    </p>
+</footer> -->
 
 <script>
     'use strict';
@@ -33,107 +55,94 @@
         for (let i = 0; i < data.length; i++){
             let war = data[i].War;
             let death = data[i].Dead;
-            //I am dividing the Death number by 1000 to bring them down.
-            death = Number(death) / 1000;
+            //I am dividing the Death number by 2000 to bring them down.
+            death = Number(death) / 1500;
             deaths.push(death)
             warData.push({ War: war, Deaths: death })
         }
 
-    console.log(deaths)
+    //Declaring Variables
+    let w = 500;
+    let h = 500;
+    let padding = 20;
+    let barPadding = 1;
+    let margin = {top: 100, right: 20, bottom: 70, left: 250},
+    width = 600 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 
-    d3.select('body').selectAll('div')
-        .data(deaths)
-        .enter()
-        .append('div')
-        .attr("class", "bar")
-        .style("height", function(d) {
-            return d + "px";
-        });
+    let svg = d3.select("main")
+            .append("svg")
+            .attr("width", 800)
+            .attr("height", 700)
+            .append("g")
+                .attr("transform","translate(" + margin.left + "," + margin.top + ")");
+
+    let xScale = d3.scaleLinear()
+                        // .domain([0, d3.max(deaths, function(d) { return d[0]; })])
+                        .domain([0, 500])
+                        .range([0, 500]);
+
+    let yScale = d3.scaleLinear()
+					 .domain([750000, 0])
+					 .range([0, 500]);
+
+    let xAxis = d3.axisBottom()
+    				.scale(xScale)
+                    .ticks(5);
+
+    let yAxis = d3.axisLeft()
+    				.scale(yScale)
+                    .ticks(10);
+
+
+    svg.selectAll("rect")
+       .data(warData)
+       .enter()
+       .append("rect")
+       .attr("x", function(d, i) {
+            return i * (w / warData.length);
+       })
+       .attr("y", function(d){
+           return h - d.Deaths;
+       })
+       .attr("width", w / warData.length - barPadding)
+       .attr("height", function(d){
+           return d.Deaths;
+       })
+       .attr("fill", "steelblue")
+       .append("title")
+       .text(function(d){
+           return d.War+":" + " " + d.Deaths * 1500;
+       });
+
+    //Create X axis
+    svg.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(0," + (h - padding) + ")")
+        .call(xAxis);
+
+    //Create Y axis
+    svg.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(" + padding + ",0)")
+        .call(yAxis);
 
 
 
-
-
-
-        ///SOME WHAT WORKS
-        // let chartHolder = d3.select('#nobel-bar');
-        //
-        // let margin = {top:20, right:20, bottom:30, left:40};
-        // let width = 500;
-        // let height = 500;
-        // let barWidth = w / warData.length;
-        //
-        // let svg = d3.select('#nobel-bar').append("svg")
-        //     .attr("width", width + margin.left + margin.right)
-        //     .attr("height", height + margin.top + margin.bottom )
-        //     .append('g').classed('chart', true)
-        //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        //
-        // warData.forEach(function(d, i){
-        //     svg.append('rect').classed('bar', true)
-        //         .attr('height', d.Deaths / 10)
-        //         .attr('width', barWidth)
-        //         .attr('y', height)
-        //         .attr('x', d.Deaths / 10)
-        //         .attr("fill", function(d) {
-        //         	return "rgb(0, 0, 0)";
-        //         });
-        // })
-        ////////// END OF SOMEWHAT WORKS
-
-        // warData.forEach(function(d, i){
-        //     svg.selectAll("rect")
-        //         .data(warData)
-        //         .enter()
-        //         .append("rect")
-        //         .attr("x", function(d, i) {
-        //            	return i * (w / warData.length);
-        //         })
-        //         .attr('y', d.Deaths - height)
-        //         .attr("width", w / warData.length)
-        //         .attr('height', function(d){
-        //             return d;
-        //         })
-        //         .attr("fill", function(d) {
-        //             return "rgb(0, 0, 0)";
-        //         });
-        // })
-
-        // let dataset =[34,23,12];
-        // svg.selectAll("rect")
-        //    .data(dataset)
-        //    .enter()
-        //    .append("rect")
-        //    .attr("x", function(d, i) {
-        //    		return i * (w / dataset.length);
-        //    })
-        //    .attr("y", function(d) {
-        //    		return h - (d * 4);
-        //    })
-        //    .attr("width", w / dataset.length - barPadding)
-        //    .attr("height", function(d) {
-        //    		return d * 4;
-        //    })
-        //    .attr("fill", function(d) {
-        // 		return "rgb(0, 0, " + (d * 10) + ")";
-        //    });
-        //
-        // svg.selectAll("text")
-        //    .data(warData)
-        //    .enter()
-        //    .append("text")
-        //    .text(function(d) {
-        //    		return d;
-        //    })
-        //    .attr("x", function(d, i) {
-        //    		return i * (w / warData.length) + 5;
-        //    })
-        //    .attr("y", function(d) {
-        //    		return h - (d * 4) + 15;
-        //    })
-        //    .attr("font-family", "sans-serif")
-        //    .attr("font-size", "11px")
-        //    .attr("fill", "white");
+    // svg.selectAll("text")
+    //     .data(warData)
+    //     .enter()
+    //     .append("text")
+    //     .text(function(d) {
+    //   		return d.War;
+    //     })
+    //     .attr("x", function(d, i) {
+    //   		return i * (w / warData.length);
+    //     })
+    //     .attr("y", 10)
+    //     .attr("font-family", "sans-serif")
+    //     .attr("font-size", "11px")
+    //     .attr("fill", "black");
 
 
     });
