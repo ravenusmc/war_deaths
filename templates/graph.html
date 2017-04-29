@@ -20,8 +20,8 @@
 <nav>
     <ul>
         <li><a href='/index'>Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-        <li><a href="/data">Data</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-        <li><a href="/Graph">Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li><a href="/index">Data</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li><a href="/graph_page">Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
         <li><a href='/logout'>Sign Out</a></li>
     </ul>
 </nav>
@@ -31,7 +31,7 @@
 </main>
 
 <section>
-    <h1>Graph Information</h1>
+    <h1 class='section_heading'>Graph Information</h1>
     <p>The above graph will show the amount of deaths in U.S. Wars. It will start
         from the war which had the most American casualties to the least. A few
         pieces of information about the graph:
@@ -91,7 +91,7 @@
                 .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
     let xScale = d3.scaleLinear()
-                        .domain([0, 500])
+                        .domain([0, 550])
                         .range([0, 500]);
 
     let yScale = d3.scaleLinear()
@@ -147,24 +147,6 @@
         .attr("class", "axis")
         .attr("transform", "translate(" + 0+ ",0)")
         .call(yAxis);
-
-
-
-    // svg.selectAll("text")
-    //     .data(warData)
-    //     .enter()
-    //     .append("text")
-    //     .text(function(d) {
-    //   		return d.War;
-    //     })
-    //     .attr("x", function(d, i) {
-    //   		return i * (w / warData.length);
-    //     })
-    //     .attr("y", 10)
-    //     .attr("font-family", "sans-serif")
-    //     .attr("font-size", "11px")
-    //     .attr("fill", "black");
-
 
     });
 
