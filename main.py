@@ -25,7 +25,6 @@ def login():
         password = request.form['password']
         #Now checking to see if the user is in the database.
         flag = member.check(username, password)
-        print(flag)
         if flag == True:
             #If the user is in the database, the user gets sent to the index page.
             session['username'] = request.form['username']
