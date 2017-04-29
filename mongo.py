@@ -27,15 +27,23 @@ class User_Database():
 
     #This method will see if the user is actual member of the site.
     def check(self, username, password):
+        #I first encode the password to utf-8
         password = password.encode('utf-8')
+        #I then search for a user that matches the username
         user = self.db.members.find_one({
             "username": username
         });
+        #If user is not found then flag is set to False
         if str(user) == 'None':
             flag = False
+        #If the user is found, then another check is done to see if the hidden
+        #password matches the original one.
         else:
+            #Setting the hashed variable to be used in the conditional statement.
             hashed = user['password']
             if bcrypt.hashpw(password, hashed) == hashed:
+                #I don't believe I need this user real. I only need to return
+                #the flag.
                 user_real = self.db.members.find_one({
                     "username": username,
                     "password": password
