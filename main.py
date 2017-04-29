@@ -25,6 +25,7 @@ def login():
         password = request.form['password']
         #Now checking to see if the user is in the database.
         flag = member.check(username, password)
+        print("FLAG", flag)
         if flag == True:
             #If the user is in the database, the user gets sent to the index page.
             session['username'] = request.form['username']
@@ -45,9 +46,10 @@ def sign_up():
         #Getting the correct data from the form that was submitted.
         username = request.form['username']
         password = request.form['password']
+        password, hashed = member.encrypt_pass(password)
         #Here the identity object uses the add method to add the user to the mongo
         #databse. Once that is done, the user will be redirected to the index page.
-        member.add(username, password)
+        member.add(username, hashed)
         return redirect(url_for('index'))
     return render_template('sign_up.html', title='Sign Up Page')
 
@@ -62,7 +64,6 @@ def index():
         data = Data()
         number_entered = int(request.form['number'])
         values = data.wounded(number_entered)
-        print(values)
         return values
     return render_template('index.html', title='Login Page', name = name)
 
@@ -82,10 +83,12 @@ def wounded():
     wars = data.wounded(number_entered)
     return render_template('wounded.html', title='Wounded in War', wounded = number_entered, wars = wars)
 
+#This function is what will call the graph page.
 @app.route('/graph_page')
 def graph_page():
     return render_template('graph.html', title='Graph Page')
 
+#This function is what will convert the csv file to be used with D3.JS.
 @app.route('/my/data/endpoint')
 def get_d3_data():
     data = Data()
