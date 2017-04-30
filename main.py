@@ -1,3 +1,21 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @ravenusmc
+ Sign out
+ Unwatch 1
+  Star 1
+ Fork 0 ravenusmc/war_deaths
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
+Branch: data Find file Copy pathwar_deaths/main.py
+2b89912  an hour ago
+@ravenusmc ravenusmc added a feature to check for comments
+1 contributor
+RawBlameHistory
+138 lines (122 sloc)  5.2 KB
 #This is the main file of the program that will actually run everything.
 
 #import libraries which will be used in the project.
@@ -103,9 +121,11 @@ def graph_page():
 def thought():
     db = Thoughts()
     username = session['username']
-    # comment = 'Hello World'
-    # db.add_comment(username, comment )
-    thoughts = db.show()
+    flag = db.check_comment_present()
+    if flag == False:
+        thoughts = "No Comments Present yet"
+    else:
+        thoughts = db.show()
     if request.method == 'POST':
         comment = request.form['comment']
         db.add_comment(username, comment)
@@ -127,9 +147,11 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
-# set the secret key. keep this really secret:
+# set the secret key.  keep this really secret:
 app.secret_key = 'n3A\xef(\xb0Cf^\xda\xf7\x97\xb1x\x8e\x94\xd5r\xe0\x11\x88\x1b\xb9'
 
 #This line will actually run the app.
 if __name__ == '__main__':
     app.run(debug=True)
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
