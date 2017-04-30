@@ -254,3 +254,44 @@ header div {
 .section_heading {
     text-align: center;
 }
+
+/* CSS for thoughts Page */
+
+
+.thoughtHome {
+  margin-top: -15px;
+  padding-top: 100px;
+  background-image: url(https://source.unsplash.com/1KmCeUNPTTM);
+  height: 550px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.thoughtFlex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.thoughtAsideOne {
+    flex: 3;
+    background-color: black;
+    color: white;
+}
+
+.thoughtMain {
+    flex: 4;
+    background-color: white;
+    color: black;
+}
+
+.thoughtAsideTwo {
+    flex: 3;
+    background-color: black;
+    color: white;
+}
+
+.margin_Fix {
+    margin-left: 10px;
+    margin-right: 10px;
+}
