@@ -27,7 +27,6 @@ def login():
         password = request.form['password']
         #Now checking to see if the user is in the database.
         flag = member.check(username, password)
-        print("FLAG", flag)
         if flag == True:
             #If the user is in the database, the user gets sent to the index page.
             session['username'] = request.form['username']
@@ -112,7 +111,7 @@ def thought():
         comment = request.form['comment']
         db.add_comment(username, comment)
         return redirect(url_for('thought'))
-    return render_template('thoughts.html', title='thoughts', thoughts = thoughts)
+    return render_template('thoughts.html', title='thoughts', thoughts = thoughts, flag = flag)
 
 #This function is what will convert the csv file to be used with D3.JS.
 @app.route('/my/data/endpoint')
@@ -135,5 +134,3 @@ app.secret_key = 'n3A\xef(\xb0Cf^\xda\xf7\x97\xb1x\x8e\x94\xd5r\xe0\x11\x88\x1b\
 #This line will actually run the app.
 if __name__ == '__main__':
     app.run(debug=True)
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
