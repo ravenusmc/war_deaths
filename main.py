@@ -83,6 +83,15 @@ def wounded():
     wars = data.wounded(number_entered)
     return render_template('wounded.html', title='Wounded in War', wounded = number_entered, wars = wars)
 
+#This function will display the data for specific amount of people who are wounded and dead
+@app.route('/wounded_Dead', methods=["POST"])
+def wounded_dead():
+    data = Data()
+    number_entered = int(request.form['number'])
+    wars = data.wounded_dead(number_entered)
+    return render_template('woundedDead.html', title='Wounded and Dead in War', causalities = number_entered, wars = wars)
+
+
 #This function is what will call the graph page.
 @app.route('/graph_page')
 def graph_page():
