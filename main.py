@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @ravenusmc
- Sign out
- Unwatch 1
-  Star 1
- Fork 0 ravenusmc/war_deaths
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
-Branch: data Find file Copy pathwar_deaths/main.py
-2b89912  an hour ago
-@ravenusmc ravenusmc added a feature to check for comments
-1 contributor
-RawBlameHistory
-138 lines (122 sloc)  5.2 KB
 #This is the main file of the program that will actually run everything.
 
 #import libraries which will be used in the project.
