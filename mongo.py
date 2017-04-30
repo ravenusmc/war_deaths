@@ -3,6 +3,7 @@
 #Importing files which will be used in the program
 from pymongo import MongoClient
 import bcrypt
+from bson.son import SON
 
 #This class will handle all of the members that join the site. It will also prevent
 #unauthorized users from entering.
@@ -50,3 +51,22 @@ class User_Database():
                 });
                 flag = True
         return flag
+
+    #These methods would be used for showing comments however, it was getting hot
+    #and I had spent hours getting the comments section to work. I then realized
+    #that the reason why I could not get it to work is because an error would be
+    #thrown for users that did not have comments. Thus, in order ot fix this, I
+    #would have to do a search to find only those users which had comments. Thus,
+    #I decided simply to create a new data base, thoughts.py to solve my problem
+    #quickly. 
+    # def add_comment(self, username, comment):
+    #     self.db.members.insert_one({
+    #         "username": username,
+    #         "comments":[
+    #             SON([("comment", comment)])
+    #         ]
+    #     })
+    #
+    # def show(self):
+    #     thoughts = self.db.members.find()
+    #     return thoughts

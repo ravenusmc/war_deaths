@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div id='container'>
+</div>
+
+<script type="text/babel">
+
+    class Nav extends React.Component {
+        render() {
+            return <div>
+                <nav>
+                    <ul>
+                        <li><a href='/index'>Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href="/index">Data</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href='/thought'>Thoughts</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href="/Graph">Graph</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><a href='/logout'>Sign Out</a></li>
+                    </ul>
+                </nav>
+                <Thoughtmain/>
+                <Footer/>
+            </div>
+        }
+    }
+    //Components for Thought page
+
+    var Thoughtmain = React.createClass({
+        render: function() {
+            return (
+                <div>
+                  <header className='thoughtHome'>
+                      <section className='banner'>
+                          <div className='inner'>
+                              <h1>U.S. War Thoughts</h1>
+                              <hr/>
+                              <h1>Leave your Thoughts Here</h1>
+                          </div>
+                      </section>
+                  </header>
+                  <div className='thoughtFlex'>
+                    <Asideone/>
+                    <Thoughthome/>
+                    <Asidetwo/>
+                  </div>
+                </div>
+            )
+        }
+    });
+
+    var Asideone = React.createClass({
+        render: function(){
+            return (
+                <div className='thoughtAsideOne'>
+                    <h1 className='center'>A War Poem</h1>
+                    <p className='margin_Fix'>
+                        I have a rendezvous with Death
+                        At some disputed barricade,
+                        When Spring comes back with rustling shade
+                        And apple-blossoms fill the air—
+                        I have a rendezvous with Death
+                        When Spring brings back blue days and fair.
+                    </p>
+                    <p className='margin_Fix'>
+                        It may be he shall take my hand
+                        And lead me into his dark land
+                        And close my eyes and quench my breath—
+                        It may be I shall pass him still.
+                        I have a rendezvous with Death
+                        On some scarred slope of battered hill,
+                        When Spring comes round again this year
+                        And the first meadow-flowers appear.
+                    </p>
+                    <p className='margin_Fix'>
+                        God knows ‘twere better to be deep
+                        Pillowed in silk and scented down,
+                        Where love throbs out in blissful sleep,
+                        Pulse nigh to pulse, and breath to breath,
+                        Where hushed awakenings are dear...
+                        But I’ve a rendezvous with Death
+                        At midnight in some flaming town,
+                        When Spring trips north again this year,
+                        And I to my pledged word am true,
+                        I shall not fail that rendezvous.
+                        -Alan Seeger, 1888-1926
+                    </p>
+                </div>
+            )
+        }
+    })
+
+    var Thoughthome = React.createClass({
+        render: function(){
+            return (
+                <div className='thoughtMain'>
+                    <h1 className='center'>Thoughts</h1>
+                    <h3 className='margin_Fix'>Comments:</h3>
+                    {% for thought in thoughts %}
+                        <p className='margin_Fix'> {{ thought["username"] }} says: {{ thought["comments"][0]["comment"] }} </p>
+                    {% endfor %}
+                    <p className='margin_Fix'>Enter in your Comment: </p>
+                    <form className='margin_Fix' method='POST' action='/thought'>
+                        <input name='comment' type='text'/>
+                        <input type='submit'/>
+                    </form>
+                </div>
+            )
+        }
+    })
+
+    var Asidetwo = React.createClass({
+        render: function(){
+            return (
+                <div className='thoughtAsideTwo'>
+                    <h1 className='center'>War Quotes</h1>
+                    <p className='margin_Fix'>The supreme art of war is to subdue the enemy without
+                     fighting. -Sun Tzu
+                    </p>
+                    <p className='margin_Fix'>The two most powerful warriors are patience and time. -Leo
+                    Tolstoy
+                    </p>
+
+
+                </div>
+            )
+        }
+    })
+
+    //End of Components for thought page
+
+    class Footer extends React.Component {
+        render() {
+            return <div>
+                <footer>
+                    Copyright &copy; 2017 Double Sun Productions
+                    <br/>
+                    <p>
+                      <a href="https://github.com/ravenusmc"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                      <a href="https://twitter.com/"><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+                      <a href="https://www.linkedin.com/in/mcuddy1/"><i className="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                    </p>
+                </footer>
+            </div>
+        }
+    }
+
+    ReactDOM.render(<Nav/>,
+        document.getElementById('container')
+    )
+
+</script>
+
+
+{% endblock %}

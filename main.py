@@ -5,11 +5,13 @@ import pandas as pd
 import numpy as np
 from flask import Flask, session, redirect, url_for, escape, render_template, request
 from pymongo import MongoClient
+from bson.son import SON
 import bcrypt
 
 #importing files that I made for this project
 from mongo import *
 from data import *
+from thoughts import *
 
 #Setting up flask
 app = Flask(__name__)
@@ -91,11 +93,24 @@ def wounded_dead():
     wars = data.wounded_dead(number_entered)
     return render_template('woundedDead.html', title='Wounded and Dead in War', causalities = number_entered, wars = wars)
 
-
 #This function is what will call the graph page.
 @app.route('/graph_page')
 def graph_page():
     return render_template('graph.html', title='Graph Page')
+
+#This function will display the comments that users leave.
+@app.route('/thought', methods=['GET', 'POST'])
+def thought():
+    db = Thoughts()
+    username = session['username']
+    # comment = 'Hello World'
+    # db.add_comment(username, comment )
+    thoughts = db.show()
+    if request.method == 'POST':
+        comment = request.form['comment']
+        db.add_comment(username, comment)
+        return redirect(url_for('thought'))
+    return render_template('thoughts.html', title='thoughts', thoughts = thoughts)
 
 #This function is what will convert the csv file to be used with D3.JS.
 @app.route('/my/data/endpoint')
