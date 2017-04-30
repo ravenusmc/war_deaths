@@ -205,6 +205,8 @@
                 <Wardeaths/>
                 <hr/>
                 <Warwounded/>
+                <hr/>
+                <WoundedDead/>
               </div>
           )
       }
@@ -241,6 +243,22 @@
           )
       }
   })
+
+    var WoundedDead = React.createClass({
+        render: function(){
+            return (
+                <div className='woundedArea'>
+                  <h3>Looking at the Wounded and Dead combined</h3>
+                  <p>Please enter a number and the data returned will be the wars
+                  which have that number and higher</p>
+                  <form method='POST' action='/wounded'>
+                      <input name='number' type='NUMBER'/>
+                      <input type='submit'/>
+                  </form>
+                </div>
+            )
+        }
+    })
 
   // END OF DATA COMPONENTS
 
