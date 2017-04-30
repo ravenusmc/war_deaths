@@ -103,9 +103,11 @@ def graph_page():
 def thought():
     db = Thoughts()
     username = session['username']
-    # comment = 'Hello World'
-    # db.add_comment(username, comment )
-    thoughts = db.show()
+    flag = db.check_comment_present()
+    if flag == False:
+        thoughts = "No Comments Present yet"
+    else:
+        thoughts = db.show()
     if request.method == 'POST':
         comment = request.form['comment']
         db.add_comment(username, comment)

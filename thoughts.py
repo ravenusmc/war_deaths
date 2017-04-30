@@ -23,7 +23,15 @@ class Thoughts():
             ]
         })
 
-    #This method will return the comments to be displayed on the web page. 
+    #This method will return the comments to be displayed on the web page.
     def show(self):
         thoughts = self.db.thoughts.find()
         return thoughts
+
+    def check_comment_present(self):
+        thought = self.db.thoughts.find()
+        if str(thought) == 'None':
+            flag = False
+        else:
+            flag = True
+        return flag
