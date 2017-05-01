@@ -34,6 +34,13 @@ Once the program is downloaded, simply run the program as you would any other py
 Then follow the address, which your console/terminal tells you to go to see the
 website.
 
+# Issues
+
+The D3.JS graphs do not appear to be working on Safari. However, they do come up in
+Chrome and FireFox. Also, the comments page also used another separate collection.
+I ran into some issues with the users database and comments and by the time I
+realized the problem decided just to make a whole other collection.  
+
 # Preview
 
 To see a video that talks about this project please go here: COMING SOON
