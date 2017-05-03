@@ -26,7 +26,7 @@ Flask, Python 3.4, Pandas, Mongo DB and Numpy must be installed on your computer
 4. Numpy
 5. Mongo DB
 6. D3.JS
-7. React JS
+7. React
 
 ### Operation
 
@@ -43,4 +43,6 @@ realized the problem decided just to make a whole other collection.
 
 # Preview
 
-To see a video that talks about this project please go here: COMING SOON
+To see a video that talks about this project please go here: https://www.youtube.com/watch?v=J5ucQ1v2hxk&feature=em-upload_owner
+
+Blog entry: Coming soon

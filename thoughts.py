@@ -11,8 +11,8 @@ class Thoughts():
     #Setting up the initial database
     def __init__(self):
         self.client = MongoClient() #Setting up the connection to mongo DB
-        self.db = self.client.thought #Creating the member DB
-        self.db.thoughts = self.db.thoughts #Creating a members collection within the titanic DB
+        self.db = self.client.thought #Creating the thought DB
+        self.db.thoughts = self.db.thoughts #Creating a thoughts collection within the titanic DB
 
     #Adding the comment to the database
     def add_comment(self, username, comment):

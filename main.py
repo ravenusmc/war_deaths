@@ -7,6 +7,7 @@ from flask import Flask, session, redirect, url_for, escape, render_template, re
 from pymongo import MongoClient
 from bson.son import SON
 import bcrypt
+import requests
 
 #importing files that I made for this project
 from mongo import *
