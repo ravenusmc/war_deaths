@@ -45,4 +45,4 @@ realized the problem decided just to make a whole other collection.
 
 To see a video that talks about this project please go here: https://www.youtube.com/watch?v=J5ucQ1v2hxk&feature=em-upload_owner
 
-Blog entry: Coming soon
+Blog entry: https://codingsaga.wordpress.com/2017/05/04/war_data/
